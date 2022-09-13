@@ -27,7 +27,7 @@
 
     <nav class="navbar">
         <ul>
-            <li><a href="home.html">home</a></li>
+
             <li><a href="products.html">products</a></li>
             <li><a href="about.html">about</a></li>
             </li>

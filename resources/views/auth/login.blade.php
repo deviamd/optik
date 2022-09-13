@@ -1,75 +1,162 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-                
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="glasses website/css/style.css">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <!-- custom js file link  -->
+    <script src="js/script.js" defer></script>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+</head>
+<body>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+<!-- header section starts  -->
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+<header class="header">
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+    <a href="home.html" class="logo"> LOGO </a>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+    <nav class="navbar">
+        <ul>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <li><a href="products.html">products</a></li>
+            <li><a href="#">pages +</a>
+                <ul>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="blogs.html">blogs</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">contact</a></li>
+            <li><a href="#">account +</a>
+                <ul>
+                    <li><a href="{{ route('login') }}">login</a></li>
+                    <li><a href="{{ route('register') }}">register</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <a href="cart.html" class="fas fa-shopping-cart"></a>
     </div>
-</div>
-@endsection
+
+    <form action="" class="search-form">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- header section  -->
+
+<section class="heading">
+    <h1>account</h1>
+    <p> <a href="home.html">home</a> >> login </p>
+</section>
+
+<!-- header section -->
+
+<!-- login form section starts -->
+
+<section class="login-form">
+    <form action="{{ route('login') }}" method="POST">
+        @csrf
+    <form action="">
+        <h3>user login</h3>
+        <div class="inputBox">
+            <span class="fas fa-user"></span>
+            <input type="email" name="email" placeholder="enter your email" id="">
+        </div>
+        <div class="inputBox">
+            <span class="fas fa-lock"></span>
+            <input type="password" name="password" placeholder="enter your password" id="">
+        </div>
+        <input type="submit" value="sign in" class="btn">
+        <div class="flex">
+
+        </div>
+        <a href="{{ route('register') }}" class="btn">create an account</a>
+    </form>
+
+</section>
+
+<!-- login form section ends -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
+            <a href="products.html"> <i class="fas fa-angle-right"></i> products</a>
+            <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
+            <a href="blogs.html"> <i class="fas fa-angle-right"></i> blogs</a>
+            <a href="contact.html"> <i class="fas fa-angle-right"></i> contact</a>
+            <a href="login.html"> <i class="fas fa-angle-right"></i> login</a>
+            <a href="register.html"> <i class="fas fa-angle-right"></i> register</a>
+            <a href="cart.html"> <i class="fas fa-angle-right"></i> cart</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#"> <i class="fas fa-angle-right"></i> my account </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> my order </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> my wishlist </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> terms of use </a>
+            <a href="#"> <i class="fas fa-angle-right"></i> privacy policy </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-github"></i> github </a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <form action="">
+                <input type="email" placeholder="enter your emal">
+                <input type="submit" value="subscribe" class="btn">
+            </form>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>mr .web designer</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+</body>
+</html>

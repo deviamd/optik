@@ -26,15 +26,17 @@
 
     <nav class="navbar">
         <ul>
-            <li><a href="home.html">home</a></li>
+
             <li><a href="products.html">products</a></li>
             <li><a href="about.html">about</a></li>
         </li>
         <li><a href="contact.html">contact</a></li>
         <li><a href="#">account +</a>
             <ul>
-                    <li><a href="login.html">login</a></li>
-                    <li><a href="register.html">register</a></li>
+
+                    <li><a href="{{ route('login') }}">login</a></li>
+                    <li><a href="{{ route('register') }}">register</a></li>
+
                 </ul>
             </li>
         </ul>
@@ -69,9 +71,10 @@
 <!-- register form section starts -->
 
 <section class="register-form">
-
+    <form class="form-detail" action="{{ route('register')}}" method="POST">
+        @csrf
     <form action="">
-        
+
         <h3>register now</h3>
         <div class="inputBox">
             <span class="fas fa-user"></span>
@@ -87,10 +90,10 @@
         </div>
         <div class="inputBox">
             <span class="fas fa-lock"></span>
-            <input type="password" name="password" placeholder="confirm your password" id="">
+            <input type="password" name="password_confirmation" placeholder="confirm your password" id="">
         </div>
         <input type="submit" value="sign up" class="btn">
-        <a href="login.html" class="btn">already have an account</a>
+        <a href="{{ route('login') }}" class="btn">already have an account</a>
     </form>
 
 </section>
