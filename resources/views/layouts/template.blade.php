@@ -12,20 +12,20 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- jquery.vectormap css -->
-        <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
 
         <!-- DataTables -->
-        <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet')}}" type="text/css" />
 
         <!-- Responsive datatable examples -->
-        <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet')}}" type="text/css" />
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet')}}" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/css/icons.min.css" rel="stylesheet" type="text/css')}}" />
         <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/css/app.min.css" id="app-style" rel="stylesheet')}}" type="text/css" />
 
     </head>
 
@@ -44,19 +44,19 @@
                         <div class="navbar-brand-box">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.png" alt="logo-sm" height="22">
+                                    <img src="{{ asset('backend/assets/images/logo-sm.png')}}" alt="logo-sm" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="logo-dark" height="20">
+                                    <img src="{{ asset('backend/assets/images/logo-dark.png')}}" alt="logo-dark" height="20">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.png" alt="logo-sm-light" height="22">
+                                    <img src="{{ asset('backend/assets/images/logo-sm.png')}}" alt="logo-sm-light" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="logo-light" height="20">
+                                    <img src="{{ asset('backend/assets/images/logo-light.png')}}" alt="logo-light" height="20">
                                 </span>
                             </a>
                         </div>
@@ -194,7 +194,7 @@
 
                                             <div class="col-sm-5">
                                                 <div>
-                                                    <img src="assets/images/megamenu-img.png" alt="megamenu-img" class="img-fluid mx-auto d-block">
+                                                    <img src="{{ asset('backend/assets/images/megamenu-img.png')}}" alt="megamenu-img" class="img-fluid mx-auto d-block">
                                                 </div>
                                             </div>
                                         </div>
@@ -231,18 +231,18 @@
                         <div class="dropdown d-none d-sm-inline-block">
                             <button type="button" class="btn header-item waves-effect"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="" src="assets/images/flags/us.jpg" alt="Header Language" height="16">
+                                <img class="" src="{{ asset('backend/assets/images/flags/us.jpg')}}" alt="Header Language" height="16">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                                    <img src="{{ asset('backend/assets/images/flags/spain.jpg')}}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                                    <img src="{{ asset('backend/assets/images/flags/germany.jpg')}}" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
                                 </a>
 
                                 <!-- item-->
@@ -407,7 +407,7 @@
                         <div class="dropdown d-inline-block user-dropdown">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                                <img class="rounded-circle header-profile-user" src="/backend/assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1">Devia</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -441,7 +441,7 @@
                     <!-- User details -->
                     <div class="user-profile text-center mt-3">
                         <div class="">
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle">
+                            <img src="backend/assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle">
                         </div>
                         <div class="mt-3">
                             <h4 class="font-size-16 mb-1">Devia</h4>
@@ -795,38 +795,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <h4 class="card-title mb-4">Email Sent</h4>
-
-                                        <div class="text-center pt-3">
-                                            <div class="row">
-                                                <div class="col-sm-4 mb-3 mb-sm-0">
-                                                    <div class="d-inline-flex">
-                                                        <h5 class="me-2">25,117</h5>
-                                                        <div class="text-success font-size-12">
-                                                            <i class="mdi mdi-menu-up font-size-14"> </i>2.2 %
-                                                        </div>
-                                                    </div>
-                                                    <p class="text-muted text-truncate mb-0">Marketplace</p>
-                                                </div><!-- end col -->
-                                                <div class="col-sm-4 mb-3 mb-sm-0">
-                                                    <div class="d-inline-flex">
-                                                        <h5 class="me-2">$34,856</h5>
-                                                        <div class="text-success font-size-12">
-                                                            <i class="mdi mdi-menu-up font-size-14"> </i>1.2 %
-                                                        </div>
-                                                    </div>
-                                                    <p class="text-muted text-truncate mb-0">Last Week</p>
-                                                </div><!-- end col -->
-                                                <div class="col-sm-4">
-                                                    <div class="d-inline-flex">
-                                                        <h5 class="me-2">$18,225</h5>
-                                                        <div class="text-success font-size-12">
-                                                            <i class="mdi mdi-menu-up font-size-14"> </i>1.7 %
-                                                        </div>
-                                                    </div>
-                                                    <p class="text-muted text-truncate mb-0">Last Month</p>
-                                                </div><!-- end col -->
-                                            </div><!-- end row -->
                                         </div>
                                     </div>
                                     <div class="card-body py-0 px-2">
@@ -834,48 +802,6 @@
                                     </div>
                                 </div><!-- end card -->
                             </div>
-                            <!-- end col -->
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body pb-0">
-                                        <div class="float-end d-none d-md-inline-block">
-                                            <div class="dropdown">
-                                                <a class="text-reset" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span class="text-muted">This Years<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="#">Today</a>
-                                                    <a class="dropdown-item" href="#">Last Week</a>
-                                                    <a class="dropdown-item" href="#">Last Month</a>
-                                                    <a class="dropdown-item" href="#">This Year</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h4 class="card-title mb-4">Revenue</h4>
-
-                                        <div class="text-center pt-3">
-                                            <div class="row">
-                                                <div class="col-sm-4 mb-3 mb-sm-0">
-                                                    <div>
-                                                        <h5>17,493</h5>
-                                                        <p class="text-muted text-truncate mb-0">Marketplace</p>
-                                                    </div>
-                                                </div><!-- end col -->
-                                                <div class="col-sm-4 mb-3 mb-sm-0">
-                                                    <div>
-                                                        <h5>$44,960</h5>
-                                                        <p class="text-muted text-truncate mb-0">Last Week</p>
-                                                    </div>
-                                                </div><!-- end col -->
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <h5>$29,142</h5>
-                                                        <p class="text-muted text-truncate mb-0">Last Month</p>
-                                                    </div>
-                                                </div><!-- end col -->
-                                            </div><!-- end row -->
-                                        </div>
-                                    </div>
                                     <div class="card-body py-0 px-2">
                                         <div id="column_line_chart" class="apex-charts" dir="ltr"></div>
                                     </div>
