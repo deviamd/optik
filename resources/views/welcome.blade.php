@@ -32,14 +32,33 @@
             <li><a href="about.html">about</a></li>
             </li>
             <li><a href="contact.html">contact</a></li>
-            <li><a href="#">account +</a>
+            @auth
+            <li>
+                <a href="#">Selamat datang, {{ Auth::user()->name }}</a>
                 <ul>
 
-                    <li><a href="{{ route('login') }}">login</a></li>
-                    <li><a href="{{ route('register') }}">register</a></li>
+                    <li><a href="/home ">Dashboard</a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+
+                    </form>
+                    <li><a  href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Logout</a></li>
 
                 </ul>
             </li>
+            @else
+                <li>
+                    <a href="#">account +</a>
+                    <ul>
+
+                        <li><a href="{{ route('login') }}">login</a></li>
+                        <li><a href="{{ route('register') }}">register</a></li>
+
+                    </ul>
+                </li>
+            @endauth
         </ul>
     </nav>
 
