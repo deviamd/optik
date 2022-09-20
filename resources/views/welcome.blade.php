@@ -78,7 +78,7 @@
         </div>
     </div>
 
-    <div class="slide" style="background: url(glasses webstie/images/home-bg-3.png) no-repeat;">
+    <div class="slide" style="background: url('glasses website/images/home-bg-3.png') no-repeat;">
         <div class="content">
             <span>protect your eyes</span>
             <h3>upto 50% off</h3>
