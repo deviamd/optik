@@ -30,9 +30,17 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{ route('register') }}">Logout</a></li>
+
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        {{-- <li><a class="dropdown-item" href="{{ route('register') }}">Logout</a></li> --}}
                     </ul>
                 </li>
             </ul>
@@ -72,11 +80,11 @@
                                     </div>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="{{ route('pelanggan.index') }}">
+                            <a class="nav-link" href="{{ route('user.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Pelanggan
+                                User
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('kategori.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Kategori
                             </a>
@@ -88,7 +96,7 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
+            {{-- <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
@@ -153,7 +161,8 @@
                         </div>
                     </div>
                 </footer>
-            </div>
+            </div> --}}
+            @yield('content')
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset ('dashboardadmin/js/scripts.js')}}"></script>

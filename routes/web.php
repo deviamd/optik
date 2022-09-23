@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\PelangganController;
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\KategoriController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +23,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/products', function () {
+    return view('products');
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/pelanggan', PelangganController::class);
+
+Route::get('/home', function () {
+    return view('home');
+});
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('user', UserController::class);
+Route::resource('kategori', KategoriController::class);
+
 // Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 // Route::post('/login', [LoginController::class, 'authenticate']);
 // Route::get('/logout', [LoginController::class, 'logout']);

@@ -81,6 +81,10 @@
             <input type="text" name="name" placeholder="enter your name" id="">
         </div>
         <div class="inputBox">
+            <span class="fas fa-user"></span>
+            <input type="text" name="alamat" placeholder="enter your alamat" id="">
+        </div>
+        <div class="inputBox">
             <span class="fas fa-envelope"></span>
             <input type="email" name="email" placeholder="enter your email" id="">
         </div>

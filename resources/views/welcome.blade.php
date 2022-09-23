@@ -28,7 +28,8 @@
     <nav class="navbar">
         <ul>
 
-            <li><a href="products.html">products</a></li>
+
+            <li><a href="/products">products</a></li>
             <li><a href="about.html">about</a></li>
             </li>
             <li><a href="contact.html">contact</a></li>
