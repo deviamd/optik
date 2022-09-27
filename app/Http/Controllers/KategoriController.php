@@ -101,10 +101,12 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::findOrFail($id);
         $data = $request->all();
-         $validasi = Validator::make($data,[
+        $validasi = Validator::make($data,[
         'nama_kategori'=>'required|max:255',
-        'jenis_kategori'=>'required|max:255'
+        'jenis_kategori'=>'required|max:255',
+
         ]);
+
         if($validasi->fails())
         {
             return redirect()->route('kategori.create',[$id])->withErrors($validasi);

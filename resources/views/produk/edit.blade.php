@@ -20,10 +20,7 @@ Produk
                                             @csrf
                                             {{ method_field('PUT') }}
 
-                                            <div class="mb-3">
-                                                <label>Id Produk</label>
-                                                <input type="text" name="Id_Produk" class="form-control" required="" value="{{ $produk->name }}">
-                                            </div>
+
                                             <div class="mb-3">
                                                 <label>Nama</label>
                                                 <input type="text" name="nama" class="form-control" required="" value="{{ $produk->name }}">
@@ -37,10 +34,13 @@ Produk
                                                 <input type="text" name="stok" class="form-control" required="" value="{{ $produk->name }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label>Id Kategori</label>
-                                                <input type="text" name="Id_Kategori" class="form-control" required="" value="{{ $produk->name }}">
+                                                <label class="form-label">Nama Product</label>
+                                                <select name="product_id" class="form-select" aria-label="Default select example">
+                                                       @foreach ($product as $product)
+                                                       <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                                       @endforeach
+                                                </select>
                                             </div>
-
                                             <div class="mb-0">
                                                 <div>
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light me-1">

@@ -45,13 +45,13 @@ Data Kategori
                    <tr>
                        <td>Nama</td>
 
-                       <td>{{ $kategori->name }}</td>
+                       <td>{{ $kategori->nama_kategori }}</td>
                    </tr>
 
                    <tr>
                        <td>Jenis</td>
 
-                       <td>{{ $kategori->jenis}}</td>
+                       <td>{{ $kategori->jenis_kategori}}</td>
                    </tr>
 
                                             </table>

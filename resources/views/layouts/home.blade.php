@@ -88,6 +88,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Kategori
                             </a>
+                            <a class="nav-link" href="{{ route('produk.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                               produk
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

@@ -47,17 +47,17 @@ Kategori
                                                     <td>{{ $row->nama_kategori }}</td>
                                                     <td>{{ $row->jenis_kategori }}</td>
                                                     <td>
-                                                    <form method="post" action="{{ route('kategori.destroy',[$row->id_kategori]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
+                                                    <form method="post" action="{{ route('kategori.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->nama_kategori}}?')">
 
                                                     {{-- <form method="post" action="{{ route('kategori.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')"> --}}
                                                         @csrf
                                                     {{ method_field('DELETE') }}
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('kategori.edit',[$row->id_kategori]) }}" title="Edit">
+                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('kategori.edit',[$row->id]) }}" title="edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                         </a>
                                                         <button type="submit" class="btn btn-outline-secondary btn-sm edit">
                                                         <i class="fas fa-trash-alt"></i></button>
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('kategori.show',[$row->id_kategori]) }}" title="Lihat">
+                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('kategori.show',[$row->id]) }}" title="Lihat">
                                                         <i class="fas fa-eye"></i>
                                                         </a>
                                                     </td>

@@ -18,10 +18,10 @@ class CreateTableProduk extends Migration
             $table->string('nama_produk', 20);
             $table->integer('harga');
             $table->integer('stok');
-            $table->unsignedBigInteger('id_kategori');
+            $table->unsignedBigInteger('id');
             $table->timestamps();
 
-            $table->foreign('id_kategori')->references('id_kategori')->on('kategori');
+            $table->foreign('id')->references('id')->on('kategori');
         });
     }
 

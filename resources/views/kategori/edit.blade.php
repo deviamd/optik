@@ -20,14 +20,13 @@ Kategori
                                             @csrf
                                             {{ method_field('PUT') }}
 
-
                                             <div class="mb-3">
                                                 <label>Name</label>
-                                                <input type="text" name="name" class="form-control" required="" value="{{ $kategori->name }}">
+                                                <input type="text" name="nama_kategori" class="form-control" required="" value="{{ $kategori->nama_kategori }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label>Jenis</label>
-                                                <input type="text" name="jenis" class="form-control" required="" value="{{ $kategori->jenis }}">
+                                                <input type="text" name="jenis_kategori" class="form-control" required="" value="{{ $kategori->jenis_kategori }}">
                                             </div>
 
                                             <div class="mb-0">

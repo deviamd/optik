@@ -25,12 +25,12 @@ Produk
                     </div>
                         <!-- end page title -->
                     <div>
-                        <a class="btn btn-primary waves-effect waves-light mt-2 mb-4" href="{{ route('kategori.create')}}" role="button"> Create (+)</a>
+                        <a class="btn btn-primary waves-effect waves-light mt-2 mb-4" href="{{ route('produk.create')}}" role="button"> Create (+)</a>
                         <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Tabel Kategori</h4>
+                                    <h4 class="card-title">Tabel Produk</h4>
                                     <div class="table-responsive">
                                         <table class="table table-editable table-nowrap align-middle table-edits">
                                             <thead>
@@ -44,18 +44,18 @@ Produk
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($kategori as $row)
+                                            @foreach($produk as $row)
                                                 <tr>
+                                                    <td>{{ $row->id }}</td>
+                                                    <td>{{ $row->nama_produk }}</td>
 
-                                                    <td>{{ $row->id_kategori }}</td>
-                                                    <td>{{ $row->nama }}</td>
                                                     <td>{{ $row->harga }}</td>
                                                     <td>{{ $row->stok }}</td>
-                                                    <td>{{ $row->id_kategori }}</td>
+                                                    <td>{{ $row->Produk->nama_kategori }}</td>
                                                     <td>
-                                                    <form method="post" action="{{ route('produk.destroy',[$row->id_produk) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
+                                                    <form method="post" action="{{ route('produk.destroy',[$row->id_produk]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
 
-                                                    {{-- <form method="post" action="{{ route('kategori.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')"> --}}
+                                                    {{-- <form method="post" action="{{ route('produk.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')"> --}}
                                                         @csrf
                                                     {{ method_field('DELETE') }}
                                                         <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('produk.edit',[$row->id_produk]) }}" title="Edit">
@@ -71,7 +71,7 @@ Produk
                                             @endforeach
                                             </tbody>
                                         </table>
-                                                        {{-- {{ $kategori->appends(Request::all())->links() }} --}}
+                                                        {{-- {{ $produk->appends(Request::all()->links() }} --}}
                                     </div>
                                 </div>
                             </div>

@@ -1,9 +1,9 @@
 <?php
-use App\Http\Controller;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategoriController;
@@ -34,8 +34,10 @@ Route::get('/home', function () {
     return view('home');
 });
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('user', UserController::class);
-Route::resource('kategori', KategoriController::class);
+
+Route::resource('user', 'UserController');
+Route::resource('kategori', 'KategoriController');
+Route::resource('produk', 'ProdukController');
 
 // Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 // Route::post('/login', [LoginController::class, 'authenticate']);

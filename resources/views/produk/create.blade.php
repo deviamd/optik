@@ -15,12 +15,8 @@ Produk
                     <div class="card-body">
                                         {{-- @include('alert.eror') --}}
                         <h4 class="card-title">Produk</h4>
-                        <form class="custom-validation" method="POST" action="{{ route('kategori.store') }}" novalidate="">
+                        <form class="custom-validation" method="POST" action="{{ route('produk.store') }}" novalidate="">
                             @csrf
-                            <div class="mb-3">
-                                <label>Id Produk</label>
-                                <input type="text" name="id_produk" class="form-control" required="" placeholder="Silahkan input id produk">
-                            </div>
                             <div class="mb-3">
                                 <label>Nama</label>
                                 <input type="text" name="nama_produk" class="form-control" required="" placeholder="Silahkan input nama produk">
@@ -34,8 +30,12 @@ Produk
                                 <input type="text" name="stok" class="form-control" required="" placeholder="Silahkan input stok">
                             </div>
                             <div class="mb-3">
-                                <label>Id_kategori</label>
-                                <input type="text" name="id_kategori" class="form-control" required="" placeholder="Silahkan input id kategori">
+                                <label class="form-label">Nama Kategori</label>
+                                <select name="id_product" class="form-select" aria-label="Default select example">
+                                       @foreach ($kategori as $row)
+                                       <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                       @endforeach
+                                </select>
                             </div>
                             </div>
                             <div class="mb-0">

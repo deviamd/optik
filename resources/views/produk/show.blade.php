@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title')
-Data Kategori
+Data Produk
 @endsection
 
 <!-- ini untuk isi home -->
@@ -14,7 +14,7 @@ Data Kategori
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Data Kategori</h4>
+                                    <h4 class="mb-sm-0">Data Produk</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
@@ -40,22 +40,22 @@ Data Kategori
                                             <tr>
                        <td>Kode Produk</td>
 
-                       <td>{{ $kategori->id }}</td>
+                       <td>{{ $produk->id }}</td>
                    </tr>
                    <tr>
                        <td>Nama</td>
 
-                       <td>{{ $kategori->name }}</td>
+                       <td>{{ $produk->name }}</td>
                    </tr>
 
                    <tr>
                        <td>Jenis</td>
 
-                       <td>{{ $kategori->jenis}}</td>
+                       <td>{{ $produk->jenis}}</td>
                    </tr>
 
                                             </table>
-                                            <a class="btn btn-primary waves-effect waves-light" href="/kategori" role="button">Kembali</a>
+                                            <a class="btn btn-primary waves-effect waves-light" href="/produk" role="button">Kembali</a>
                                         </div>
                                     </div>
                                 </div>
