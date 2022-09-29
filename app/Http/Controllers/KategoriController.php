@@ -15,7 +15,7 @@ class KategoriController extends Controller
      */
     public function index(Request $request)
     {
-        $kategori = Kategori::paginate(3);
+        $kategori = Kategori::paginate(5);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
         {
@@ -99,8 +99,10 @@ class KategoriController extends Controller
 
     public function update(Request $request, $id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $kategori = Kategori::find($id);
         $data = $request->all();
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->jenis_kategori = $request->jenis_kategori;
         $validasi = Validator::make($data,[
         'nama_kategori'=>'required|max:255',
         'jenis_kategori'=>'required|max:255',
@@ -111,7 +113,7 @@ class KategoriController extends Controller
         {
             return redirect()->route('kategori.create',[$id])->withErrors($validasi);
         }
-          $kategori->update($data);
+          $kategori->save();
           return redirect()->route('kategori.index');
        }
 

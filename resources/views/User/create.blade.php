@@ -19,16 +19,16 @@ User
                             @csrf
                             <div class="mb-3">
                                 <label>Name</label>
-                                <input type="text" name="name" class="form-control" required="" placeholder="Silahkan input nama">
+                                <input type="text" name="name" required="" class="form-control" required="" placeholder="Silahkan input nama">
                             </div>
                             <div class="mb-3">
                                 <label>Email</label>
                                 <div>
-                                    <input type="email" name="email" class="form-control" required="" parsley-type="email" placeholder="Silahkan masukan email yang benar">
+                                    <input type="email" name="email" required="" class="form-control" required="" parsley-type="email" placeholder="Silahkan masukan email yang benar">
                                 </div>
                                 <div class="mb-3">
                                     <label>Alamat</label>
-                                    <input type="text" name="alamat" class="form-control" required="" placeholder="Silahkan input alamat">
+                                    <input type="text" name="alamat" required="" class="form-control" required="" placeholder="Silahkan input alamat">
                                 </div>
                             </div>
                             <div class="mb-3">

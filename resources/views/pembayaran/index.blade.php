@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title')
-Kategori
+Pembayaran
 @endsection
 
 <!-- ini untuk isi home -->
@@ -14,7 +14,7 @@ Kategori
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Kategori</h4>
+                                <h4 class="mb-sm-0">Pembayaran</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
@@ -25,39 +25,41 @@ Kategori
                     </div>
                         <!-- end page title -->
                     <div>
-                        <a class="btn btn-primary waves-effect waves-light mt-2 mb-4" href="{{ route('kategori.create')}}" role="button"> Create (+)</a>
+                        <a class="btn btn-primary waves-effect waves-light mt-2 mb-4" href="{{ route('pembayaran.create')}}" role="button"> Create (+)</a>
                         <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Tabel Kategori</h4>
+                                    <h4 class="card-title">Tabel Pembayaran</h4>
                                     <div class="table-responsive">
                                         <table class="table table-editable table-nowrap align-middle table-edits">
                                             <thead>
                                                 <tr style="cursor: pointer;">
-                                                    <th>Nama</th>
-                                                    <th>Jenis</th>
+                                                    <th>Id Pembayaran</th>
+                                                    <th>Tanggal Pembayaran</th>
+                                                    <th>Total Bayar</th>
+                                                    <th>Jenis Pembayaran</th>
                                                     <th>Edit</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($kategori as $row)
+                                            @foreach($pembayaran as $row)
                                                 <tr>
 
-                                                    <td>{{ $row->nama_kategori }}</td>
-                                                    <td>{{ $row->jenis_kategori }}</td>
+                                                    <td>{{ $row->id_pembayaran }}</td>
+                                                    <td>{{ $row->tgl_pembayaran }}</td>
+                                                    <td>{{ $row->total_bayar }}</td>
+                                                    <td>{{ $row->jenis_pembayaran }}</td>
                                                     <td>
-                                                    <form method="post" action="{{ route('kategori.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->nama_kategori}}?')">
-
-                                                    {{-- <form method="post" action="{{ route('kategori.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')"> --}}
+                                                    <form method="post" action="{{ route('pembayaran.destroy',[$row->id_pembayaran]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
                                                         @csrf
                                                     {{ method_field('DELETE') }}
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('kategori.edit', $row->id) }}" title="edit">
+                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('pembayaran.edit',[$row->id_pembayaran]) }}" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                         </a>
                                                         <button type="submit" class="btn btn-outline-secondary btn-sm edit">
                                                         <i class="fas fa-trash-alt"></i></button>
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('kategori.show',[$row->id]) }}" title="Lihat">
+                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('pembayaran.show',[$row->id_pembayaran]) }}" title="Lihat">
                                                         <i class="fas fa-eye"></i>
                                                         </a>
                                                     </td>
@@ -65,7 +67,7 @@ Kategori
                                             @endforeach
                                             </tbody>
                                         </table>
-                                                        {{-- {{ $kategori->appends(Request::all())->links() }} --}}
+
                                     </div>
                                 </div>
                             </div>

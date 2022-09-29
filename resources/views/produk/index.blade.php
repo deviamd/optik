@@ -46,12 +46,12 @@ Produk
                                             <tbody>
                                             @foreach($produk as $row)
                                                 <tr>
-                                                    <td>{{ $row->id }}</td>
+                                                    <td>{{ $row->id_produk }}</td>
                                                     <td>{{ $row->nama_produk }}</td>
 
                                                     <td>{{ $row->harga }}</td>
                                                     <td>{{ $row->stok }}</td>
-                                                    <td>{{ $row->Produk->nama_kategori }}</td>
+                                                    <td>{{ ($row->kategori)->nama_kategori }}</td>
                                                     <td>
                                                     <form method="post" action="{{ route('produk.destroy',[$row->id_produk]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
 

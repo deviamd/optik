@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title')
-Produk
+TRansaksi
 @endsection
 
 <!-- ini untuk isi home -->
@@ -14,35 +14,23 @@ Produk
                 <div class="card">
                     <div class="card-body">
                                         {{-- @include('alert.eror') --}}
-                        <h4 class="card-title">Produk</h4>
-                        <form class="custom-validation" method="POST" action="{{ route('produk.store') }}" novalidate="">
+                        <h4 class="card-title">Transaksi</h4>
+                        <form class="custom-validation" method="POST" action="{{ route('transaksi.store') }}" novalidate="">
                             @csrf
-                            @if ($errors->any())
-            <div class="alert alert-danger">
-             <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-             </ul>
-            </div>
-            @endif
                             <div class="mb-3">
-                                <label>Nama</label>
-                                <input type="text" name="nama_produk" class="form-control" required="" placeholder="Silahkan input nama produk">
+                                <label>Id Produk</label>
+                                <input type="text" name="id_produk" class="form-control" required="" placeholder="Silahkan input nama tanggal produk">
                             </div>
                             <div class="mb-3">
-                                <label>Harga</label>
-                                <input type="text" name="harga" class="form-control" required="" placeholder="Silahkan input harga">
+                                <label>Id Pembayaran</label>
+                                <input type="text" name="id_pembayaran" class="form-control" required="" placeholder="Silahkan input total">
                             </div>
+
                             <div class="mb-3">
-                                <label>Stok</label>
-                                <input type="text" name="stok" class="form-control" required="" placeholder="Silahkan input stok">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Nama Kategori</label>
-                                <select name="id" class="form-select" aria-label="Default select example">
-                                       @foreach ($kategori as $row)
-                                       <option value="{{ $row->id }}">{{ $row->nama_kategori }}</option>
+                                <label class="form-label">id Transaksi</label>
+                                <select name="id_product" class="form-select" aria-label="Default select example">
+                                       @foreach ($transaksi as $row)
+                                       <option value="{{ $row->id }}">{{ $row->id }}</option>
                                        @endforeach
                                 </select>
                             </div>

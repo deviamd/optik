@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableLaporan extends Migration
+class CreateTableLaporans extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateTableLaporan extends Migration
      */
     public function up()
     {
-        Schema::create('laporan', function (Blueprint $table) {
+        Schema::create('laporans', function (Blueprint $table) {
             $table->bigIncrements('id_laporan');
             $table->string('id_sales');
             $table->string('total_pelanggan');
-           
+
             $table->unsignedBigInteger('id_pelanggan');
             $table->unsignedBigInteger('id_pembayaran');
             $table->timestamps();
 
 
-            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan');
-            $table->foreign('id_pembayaran')->references('id_pembayaran')->on('pembayaran');
+            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggans');
+            $table->foreign('id_pembayaran')->references('id_pembayaran')->on('pembayarans');
         });
     }
 
@@ -35,6 +35,6 @@ class CreateTableLaporan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laporan');
+        Schema::dropIfExists('laporans');
     }
 }

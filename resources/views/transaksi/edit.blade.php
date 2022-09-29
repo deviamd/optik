@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title')
-User
+Pembayaran
 @endsection
 
 <!-- ini untuk isi home -->
@@ -13,42 +13,25 @@ User
         <div class="col-xl-8">
                 <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Edit User</h4>
+                <h4 class="card-title">Edit Pembayaran</h4>
 
 
-                                        <form class="custom-validation" method="POST" action="{{ route('user.update',[$user->id]) }}" novalidate="">
+                                        <form class="custom-validation" method="POST" action="{{ route('pembayaran.update',[$pembayaran->id]) }}" novalidate="">
                                             @csrf
                                             {{ method_field('PUT') }}
 
 
                                             <div class="mb-3">
-                                                <label>Name</label>
-                                                <input type="text" name="name" class="form-control" required="" value="{{ $user->name }}">
+                                                <label>Total</label>
+                                                <input type="text" name="total_bayar" class="form-control" required="" value="{{ $pembayaran->total }}">
                                             </div>
 
                                             <div class="mb-3">
-                                                <label>E-Mail</label>
+                                                <label>Jenis</label>
                                                 <div>
-                                                    <input type="email" name="email" class="form-control" required="" parsley-type="email" value="{{ $user->email}}">
+                                                    <input type="text" name="jenis_pembayaran" class="form-control" required="" parsley-type="" value="{{ $pembayaran->jenis}}">
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label>Alamat</label>
-                                                <input type="text" name="alamat" class="form-control" required="" value="{{ $user->alamat }}">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label>Password</label>
-                                                <input type="text" name="password" class="form-control" required="" value="">
-                                            </div>
-
-                                            {{-- <div class="mb-3">
-                                                <label>Password</label>
-                                                <div>
-                                                    <input parsley-type="url" type="password" name="password" class="form-control" value="">
-                                                </div>
-                                           </div> --}}
-
-
 
                                             <div class="mb-0">
                                                 <div>

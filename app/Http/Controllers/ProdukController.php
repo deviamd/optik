@@ -16,7 +16,7 @@ class ProdukController extends Controller
      */
     public function index(Request $request)
     {
-        $produk = Produk::with(['Produk'])->paginate(3);
+        $produk = Produk::with('kategori')->paginate(3);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
         {
@@ -33,12 +33,9 @@ class ProdukController extends Controller
     public function create()
     {
         $produk = produk::with('kategori')->get();
-        $kategori = kategori::with('produk')->get();
+        $kategori = kategori::all();
         // $kategori = Kategori::all();
-        return view('produk.create', [
-            'kategori' => $kategori,
-            'produk' => $produk
-        ]);
+        return view('produk.create', compact('kategori'));
     }
 
     /**
@@ -54,13 +51,13 @@ class ProdukController extends Controller
         $model->nama_produk = $request->nama_produk;
         $model->harga = $request->harga;
         $model->stok= $request->stok;
-        $model->id_kategori= $request->id_kategori;
+        $model->id= $request->id;
 
         $validasi = Validator::make($data,[
             'nama_produk'=>'required|max:255',
             'harga'=>'required|max:255',
             'stok'=>'required|max:255',
-            'id_kategori'=>'required|max:255',
+            'id'=>'required|max:255',
         ]);
         if($validasi->fails())
         {
@@ -80,9 +77,9 @@ class ProdukController extends Controller
      * @param  int  $id_product
      * @return \Illuminate\Http\Response
      */
-    public function show($id_product)
+    public function show($id_produk)
     {
-        $produk = Produk::findOrFail($id_product);
+        $produk = Produk::findOrFail($id_produk);
         return view('produk.show',compact('produk'));
     }
 
@@ -93,9 +90,9 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit($id_product)
+    public function edit($id_produk)
     {
-        $produk = Produk::findOrFail($id_product);
+        $produk = Produk::findOrFail($id_produk);
         return view('produk.edit',compact('produk'));
     }
 
@@ -107,15 +104,15 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id_product)
+    public function update(Request $request, $id_produk)
     {
-        $produk = Produk::findOrFail($id_product);
+        $produk = Produk::findOrFail($id_produk);
         $data = $request->all();
         $validasi = Validator::make($data,[
             'nama_produk'=>'required|max:255',
             'harga'=>'required|max:255',
             'stok'=>'required|max:255',
-            'id_kategori'=>'required|max:255',
+            'id'=>'required|max:255',
 
         ]);
 
@@ -135,9 +132,9 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($id_product)
+    public function destroy($id_produk)
     {
-        $data = Produk::findOrFail($id_product);
+        $data = Produk::findOrFail($id_produk);
         $data->delete();
         return redirect()->route('produk.index');
     }

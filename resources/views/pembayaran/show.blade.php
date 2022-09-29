@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title')
-Data Produk
+Data Pembayaran
 @endsection
 
 <!-- ini untuk isi home -->
@@ -14,7 +14,7 @@ Data Produk
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Data Produk</h4>
+                                    <h4 class="mb-sm-0">Data Pembayaran</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
@@ -33,41 +33,34 @@ Data Produk
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title">Tabel Produk</h4>
+                                        <h4 class="card-title">Tabel Pembayaran</h4>
 
                                         <div class="table-responsive">
                                             <table class="table table-editable table-nowrap align-middle table-edits">
                                             <tr>
-                       <td>Kode Produk</td>
+                       <td>Id Pembayaran</td>
 
-                       <td>{{ $produk->id }}</td>
+                       <td>{{ $pembayaran->id }}</td>
                    </tr>
                    <tr>
-                       <td>Nama</td>
+                       <td>Tanggal</td>
 
-                       <td>{{ $produk->nama }}</td>
-                   </tr>
-
-                   <tr>
-                       <td>Harga</td>
-
-                       <td>{{ $produk->harga}}</td>
+                       <td>{{ $pembayaran->tgl_pembayaran }}</td>
                    </tr>
 
                    <tr>
-                    <td>Stok</td>
+                       <td>Total</td>
 
-                    <td>{{ $produk->stok}}</td>
-                </tr>
+                       <td>{{ $pembayaran->total_bayar}}</td>
+                   </tr>
 
                 <tr>
-                    <td>Id Kategori</td>
+                    <td>Jenis</td>
 
-                    <td>{{ $produk->kategori->id_kategori}}</td>
+                    <td>{{ $pembayaran->jenis_pembayaran }}</td>
                 </tr>
-
                                             </table>
-                                            <a class="btn btn-primary waves-effect waves-light" href="/produk" role="button">Kembali</a>
+                                            <a class="btn btn-primary waves-effect waves-light" href="/pembayaran" role="button">Kembali</a>
                                         </div>
                                     </div>
                                 </div>

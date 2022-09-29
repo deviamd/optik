@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableProduk extends Migration
+class CreateTableProduks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableProduk extends Migration
      */
     public function up()
     {
-        Schema::create('produk', function (Blueprint $table) {
+        Schema::create('produks', function (Blueprint $table) {
             $table->bigIncrements('id_produk');
             $table->string('nama_produk', 20);
             $table->integer('harga');
@@ -21,7 +21,7 @@ class CreateTableProduk extends Migration
             $table->unsignedBigInteger('id');
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('kategori');
+            $table->foreign('id')->references('id')->on('kategoris')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateTableProduk extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produk');
+        Schema::dropIfExists('produks');
     }
 }

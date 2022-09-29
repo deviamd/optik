@@ -16,7 +16,7 @@ Produk
                 <h4 class="card-title">Edit Produk</h4>
 
 
-                                        <form class="custom-validation" method="POST" action="{{ route('produk.update',[$produk->id]) }}" novalidate="">
+                                        <form class="custom-validation" method="POST" action="{{ route('produk.update',[$produk->id_produk]) }}" novalidate="">
                                             @csrf
                                             {{ method_field('PUT') }}
 
