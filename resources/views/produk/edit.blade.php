@@ -16,31 +16,32 @@ Produk
                 <h4 class="card-title">Edit Produk</h4>
 
 
-                                        <form class="custom-validation" method="POST" action="{{ route('produk.update',[$produk->id_produk]) }}" novalidate="">
+                                        <form class="custom-validation" method="POST" action="{{ route('produk.update',[$produk->id]) }}" novalidate="">
                                             @csrf
                                             {{ method_field('PUT') }}
 
 
                                             <div class="mb-3">
                                                 <label>Nama</label>
-                                                <input type="text" name="nama" class="form-control" required="" value="{{ $produk->name }}">
+                                                <input type="text" name="nama_produk" class="form-control" required="" value="{{ $produk->nama_produk }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label>Harga</label>
-                                                <input type="text" name="jenis" class="form-control" required="" value="{{ $produk->jenis }}">
+                                                <input type="text" name="harga" class="form-control" required="" value="{{ $produk->harga }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label>Stok</label>
-                                                <input type="text" name="stok" class="form-control" required="" value="{{ $produk->name }}">
+                                                <input type="text" name="stok" class="form-control" required="" value="{{ $produk->stok }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Nama Product</label>
-                                                <select name="product_id" class="form-select" aria-label="Default select example">
-                                                       @foreach ($product as $product)
-                                                       <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                                       @endforeach
+                                                <label>ID Kategori</label>
+                                                <select name="id">
+                                                   <option> Choose </option>
+                                                   @foreach ( $kategori as $row )
+                                                   <option value="{{ $row->id }}">{{ $row->nama_kategori }}</option>
+                                                   @endforeach
                                                 </select>
-                                            </div>
+                                           </div>
                                             <div class="mb-0">
                                                 <div>
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light me-1">

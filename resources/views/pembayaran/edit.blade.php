@@ -1,3 +1,6 @@
+<?php
+$tanggal = date("Y-m-d");
+?>
 @extends('layouts.home')
 @section('title')
 Pembayaran
@@ -16,7 +19,7 @@ Pembayaran
                 <h4 class="card-title">Edit Pembayaran</h4>
 
 
-                                        <form class="custom-validation" method="POST" action="{{ route('pembayaran.update',[$pembayaran->id_pembayaran]) }}" novalidate="">
+                                        <form class="custom-validation" method="POST" action="{{ route('pembayaran.update', $pembayaran->id) }}" novalidate="">
                                             @csrf
                                             {{ method_field('PUT') }}
 
@@ -25,7 +28,7 @@ Pembayaran
                                                 <label>Total</label>
                                                 <input type="text" name="total_bayar" class="form-control" required="" value="{{ $pembayaran->total_bayar }}">
                                             </div>
-
+                                        <input type="hidden" name="tgl_pembayaran" value="{{ $tanggal }}">
                                             <div class="mb-3">
                                                 <label>Jenis</label>
                                                 <div>

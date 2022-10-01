@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use\App\Pembayaran;
 use Validator;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class PembayaranController extends Controller
@@ -16,7 +17,7 @@ class PembayaranController extends Controller
      */
     public function index(Request $request)
     {
-        $pembayaran = Pembayaran::paginate(3);
+        $pembayaran = Pembayaran::paginate(5);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
         {
@@ -74,9 +75,9 @@ class PembayaranController extends Controller
      * @param  int  $id_product
      * @return \Illuminate\Http\Response
      */
-    public function show($id_product)
+    public function show($id)
     {
-        $pembayaran = Pembayaran::findOrFail($id_product);
+        $pembayaran = Pembayaran::findOrFail($id);
         return view('pembayaran.show',compact('pembayaran'));
     }
 
@@ -87,9 +88,10 @@ class PembayaranController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit($id_pembayaran)
+    public function edit($id)
     {
-        $pembayaran = Pembayaran::findOrFail($id_pembayaran);
+
+        $pembayaran = Pembayaran::find($id);
         return view('pembayaran.edit',compact('pembayaran'));
     }
 
@@ -101,12 +103,15 @@ class PembayaranController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id_pembayaran)
+    public function update(Request $request, $id)
     {
-        $pembayraan = Pembayaran::findOrFail($id_pembayaran);
+        $model = Pembayaran::find($id);
         $data = $request->all();
+        $model->tgl_pembayaran = $request->tgl_pembayaran;
+        $model->total_bayar= $request->total_bayar;
+        $model->jenis_pembayaran= $request->jenis_pembayaran;
         $validasi = Validator::make($data,[
-            'tgl_pembayaran'=>'required|max:255',
+
             'total_bayar'=>'required|max:255',
             'jenis_pembayaran'=>'required|max:255',
 
@@ -114,9 +119,9 @@ class PembayaranController extends Controller
 
         if($validasi->fails())
         {
-            return redirect()->route('pembayaran.create',[$id_pembayaran])->withErrors($validasi);
+            return redirect()->route('pembayaran.edit',[$id])->withErrors($validasi);
         }
-          $pembayaran->update($data);
+          $model->update($data);
           return redirect()->route('pembayaran.index');
        }
 
@@ -128,9 +133,9 @@ class PembayaranController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($id_pembayaran)
+    public function destroy($id)
     {
-        $data = Pembayaran::findOrFail($id_pembayaran);
+        $data = Pembayaran::findOrFail($id);
         $data->delete();
         return redirect()->route('pembayaran.index');
     }

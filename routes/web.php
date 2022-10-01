@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ Route::resource('user', 'UserController');
 Route::resource('kategori', 'KategoriController');
 Route::resource('produk', 'ProdukController');
 // Route::get('/produk/{$id_produk}/edit', 'ProdukController', 'produk.update');
-Route::resource('/pembayaran', 'PembayaranController');
+Route::resource('pembayaran', 'PembayaranController');
 
 // Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 // Route::post('/login', [LoginController::class, 'authenticate']);

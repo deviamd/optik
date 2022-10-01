@@ -13,7 +13,7 @@ Produk
             <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body">
-                                        {{-- @include('alert.eror') --}}
+
                         <h4 class="card-title">Produk</h4>
                         <form class="custom-validation" method="POST" action="{{ route('produk.store') }}" novalidate="">
                             @csrf
@@ -26,6 +26,15 @@ Produk
              </ul>
             </div>
             @endif
+
+                                <div class="mb-3">
+                                    <label>ID Kategori</label>
+                                    <select name="id">
+                                        <option> Choose </option>
+                                        @foreach ( $kategori as $row )
+                                        <option value="{{ $row->id }}"{{ $row->nama_kategori }}</option>
+                                        @endforeach
+                                </div>
                             <div class="mb-3">
                                 <label>Nama</label>
                                 <input type="text" name="nama_produk" class="form-control" required="" placeholder="Silahkan input nama produk">
@@ -38,13 +47,7 @@ Produk
                                 <label>Stok</label>
                                 <input type="text" name="stok" class="form-control" required="" placeholder="Silahkan input stok">
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Nama Kategori</label>
-                                <select name="id" class="form-select" aria-label="Default select example">
-                                       @foreach ($kategori as $row)
-                                       <option value="{{ $row->id }}">{{ $row->nama_kategori }}</option>
-                                       @endforeach
-                                </select>
+
                             </div>
                             </div>
                             <div class="mb-0">

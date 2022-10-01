@@ -14,8 +14,7 @@ class CreateTableLaporans extends Migration
     public function up()
     {
         Schema::create('laporans', function (Blueprint $table) {
-            $table->bigIncrements('id_laporan');
-            $table->string('id_sales');
+            $table->bigIncrements('id');
             $table->string('total_pelanggan');
 
             $table->unsignedBigInteger('id_pelanggan');
@@ -23,8 +22,8 @@ class CreateTableLaporans extends Migration
             $table->timestamps();
 
 
-            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggans');
-            $table->foreign('id_pembayaran')->references('id_pembayaran')->on('pembayarans');
+            $table->foreign('id_pelanggan')->references('id')->on('pelanggans');
+            $table->foreign('id_pembayaran')->references('id')->on('pembayarans');
         });
     }
 

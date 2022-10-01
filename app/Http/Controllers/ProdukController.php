@@ -33,7 +33,7 @@ class ProdukController extends Controller
     public function create()
     {
         $produk = produk::with('kategori')->get();
-        $kategori = kategori::all();
+        $kategori = Kategori::all();
         // $kategori = Kategori::all();
         return view('produk.create', compact('kategori'));
     }
@@ -51,7 +51,7 @@ class ProdukController extends Controller
         $model->nama_produk = $request->nama_produk;
         $model->harga = $request->harga;
         $model->stok= $request->stok;
-        $model->id= $request->id;
+        $model->id_kategoris = $request->id;
 
         $validasi = Validator::make($data,[
             'nama_produk'=>'required|max:255',
@@ -77,9 +77,9 @@ class ProdukController extends Controller
      * @param  int  $id_product
      * @return \Illuminate\Http\Response
      */
-    public function show($id_produk)
+    public function show($id)
     {
-        $produk = Produk::findOrFail($id_produk);
+        $produk = Produk::findOrFail($id);
         return view('produk.show',compact('produk'));
     }
 
@@ -90,10 +90,11 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit($id_produk)
+    public function edit($id)
     {
-        $produk = Produk::findOrFail($id_produk);
-        return view('produk.edit',compact('produk'));
+        $produk = Produk::findOrFail($id);
+        $kategori = Kategori::all();
+        return view('produk.edit',compact('produk','kategori'));
     }
 
     /**
@@ -104,9 +105,9 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id_produk)
+    public function update(Request $request, $id)
     {
-        $produk = Produk::findOrFail($id_produk);
+        $produk = Produk::findOrFail($id);
         $data = $request->all();
         $validasi = Validator::make($data,[
             'nama_produk'=>'required|max:255',
@@ -118,7 +119,7 @@ class ProdukController extends Controller
 
         if($validasi->fails())
         {
-            return redirect()->route('produk.create',[$id_product])->withErrors($validasi);
+            return redirect()->route('produk.create',[$id])->withErrors($validasi);
         }
           $produk->update($data);
           return redirect()->route('produk.index');

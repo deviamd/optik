@@ -46,20 +46,20 @@ Pembayaran
                                             @foreach($pembayaran as $row)
                                                 <tr>
 
-                                                    <td>{{ $row->id_pembayaran }}</td>
+                                                    <td>{{ $row->id }}</td>
                                                     <td>{{ $row->tgl_pembayaran }}</td>
                                                     <td>{{ $row->total_bayar }}</td>
                                                     <td>{{ $row->jenis_pembayaran }}</td>
                                                     <td>
-                                                    <form method="post" action="{{ route('pembayaran.destroy',[$row->id_pembayaran]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
+                                                    <form method="post" action="{{ route('pembayaran.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
                                                         @csrf
                                                     {{ method_field('DELETE') }}
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('pembayaran.edit',[$row->id_pembayaran]) }}" title="Edit">
+                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('pembayaran.edit', $row->id) }}" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                         </a>
                                                         <button type="submit" class="btn btn-outline-secondary btn-sm edit">
                                                         <i class="fas fa-trash-alt"></i></button>
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('pembayaran.show',[$row->id_pembayaran]) }}" title="Lihat">
+                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('pembayaran.show',[$row->id]) }}" title="Lihat">
                                                         <i class="fas fa-eye"></i>
                                                         </a>
                                                     </td>
