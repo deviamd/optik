@@ -16,7 +16,7 @@ Pembayaran
         <div class="col-xl-8">
                 <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Edit Pembayaran</h4>
+                <h4 class="card-title">Edit Order</h4>
 
 
                                         <form class="custom-validation" method="POST" action="{{ route('pembayaran.update', $pembayaran->id) }}" novalidate="">
@@ -25,16 +25,19 @@ Pembayaran
 
 
                                             <div class="mb-3">
-                                                <label>Total</label>
-                                                <input type="text" name="total_bayar" class="form-control" required="" value="{{ $pembayaran->total_bayar }}">
+                                                <label>Nama Produk</label>
+                                                <input type="text" name="id" class="form-control" required="" value="{{ $order->produk->nama }}">
                                             </div>
-                                        <input type="hidden" name="tgl_pembayaran" value="{{ $tanggal }}">
                                             <div class="mb-3">
-                                                <label>Jenis</label>
-                                                <div>
-                                                    <input type="text" name="jenis_pembayaran" class="form-control" required="" parsley-type="" value="{{ $pembayaran->jenis_pembayaran}}">
-                                                </div>
+                                                <label>Qty</label>
+                                                <input type="text" name="qty" class="form-control" required="" value="{{ $order->qty }}">
                                             </div>
+                                            <div class="mb-3">
+                                                <label>Harga</label>
+                                                <input type="text" name="harga" class="form-control" required="" value="{{ $order->harga }}">
+                                            </div>
+
+
 
                                             <div class="mb-0">
                                                 <div>

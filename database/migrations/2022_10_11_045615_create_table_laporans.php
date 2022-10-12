@@ -13,17 +13,9 @@ class CreateTableLaporans extends Migration
      */
     public function up()
     {
-        Schema::create('laporans', function (Blueprint $table) {
+        Schema::create('table_laporans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('total_pelanggan');
-
-            $table->unsignedBigInteger('id_pelanggan');
-            $table->unsignedBigInteger('id_pembayaran');
             $table->timestamps();
-
-
-            $table->foreign('id_pelanggan')->references('id')->on('pelanggans');
-            $table->foreign('id_pembayaran')->references('id')->on('pembayarans');
         });
     }
 
@@ -34,6 +26,6 @@ class CreateTableLaporans extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laporans');
+        Schema::dropIfExists('table_laporans');
     }
 }

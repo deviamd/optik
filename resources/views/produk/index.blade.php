@@ -51,7 +51,7 @@ Produk
 
                                                     <td>{{ $row->harga }}</td>
                                                     <td>{{ $row->stok }}</td>
-                                                    <td>{{ ($row->kategori)->nama_kategori }}</td>
+                                                    {{-- <td>{{ ($row->kategori)->nama_kategori }}</td> --}}
                                                     <td>
                                                     <form method="post" action="{{ route('produk.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
 

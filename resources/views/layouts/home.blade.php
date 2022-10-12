@@ -92,15 +92,15 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                produk
                             </a>
-                            <a class="nav-link" href="{{ route('pembayaran.index') }}">
+                            <a class="nav-link" href="{{ route('order.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Pembayaran
+                               Order
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('transaksi.index') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                Transaksi
                             </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('laporan.index') }}">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Laporan
                                 </a>

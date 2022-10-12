@@ -63,7 +63,7 @@ Data Produk
                 <tr>
                     <td>Id Kategori</td>
 
-                    <td>{{ $produk->kategori->id_kategori}}</td>
+                    {{-- <td>{{ $produk->kategori->id_kategori}}</td> --}}
                 </tr>
 
                                             </table>

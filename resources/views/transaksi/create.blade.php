@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title')
-TRansaksi
+Transaksi
 @endsection
 
 <!-- ini untuk isi home -->
@@ -17,24 +17,46 @@ TRansaksi
                         <h4 class="card-title">Transaksi</h4>
                         <form class="custom-validation" method="POST" action="{{ route('transaksi.store') }}" novalidate="">
                             @csrf
-                            <div class="mb-3">
-                                <label>Id Produk</label>
-                                <input type="text" name="id_produk" class="form-control" required="" placeholder="Silahkan input nama tanggal produk">
-                            </div>
-                            <div class="mb-3">
-                                <label>Id Pembayaran</label>
-                                <input type="text" name="id_pembayaran" class="form-control" required="" placeholder="Silahkan input total">
-                            </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">id Transaksi</label>
-                                <select name="id_product" class="form-select" aria-label="Default select example">
-                                       @foreach ($transaksi as $row)
-                                       <option value="{{ $row->id }}">{{ $row->id }}</option>
-                                       @endforeach
+                            @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                            <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                            </ul>
+                                            </div>
+                                            @endif
+
+                        <div class="form-row">
+                            <div class="name">Jenis Pembayaran</div>
+                            <div class="value">
+                                <select name="jenis_pmbyr" class="form-control">
+                                    <option value="opt1">Pilih Jenis Pembayaran</option>
+                                    <option value="1">Debit</option>
+                                    <option value="2">Cod</option>
                                 </select>
                             </div>
-                            </div>
+                        </div>
+                            <div class="form-row">
+                                <div class="row-12">
+                                    <div class="mb-3">
+                                        <label>Tanggal</label>
+                                        <input type="date" name="tanggal" class="form-control" required="" placeholder="Silahkan input nama tanggal pembayaran">
+
+                                       @foreach ($produk as $key)
+                                       <input type="hidden" value="{{ $key->id }}" name="id" class="form-control" required="" placeholder="Silahkan input total">
+                                       @endforeach
+
+                                       @foreach ($order as $key)
+                                       <input type="hidden" value="{{ $key->id }}" name="id_orders" class="form-control" required="" placeholder="Silahkan input total">
+                                       @endforeach
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Total Bayar</label>
+                                        <input type="text" name="total_bayar" class="form-control" required="" placeholder="Silahkan input total">
+                                    </div>
                             <div class="mb-0">
                                 <div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light me-1">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTablePembayarans extends Migration
+class CreateTableOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateTablePembayarans extends Migration
      */
     public function up()
     {
-        Schema::create('pembayarans', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->datetime('tgl_pembayaran');
-            $table->unsignedBigInteger('total_bayar');
-            $table->enum('jenis_pembayaran', ['debit', 'cod']);
-
+            // $table->unsignedBigInteger('id_produk');
+            $table->string('qty');
+            $table->string('harga');
             $table->timestamps();
+            // $table->foreign('id_produk')->references('id')->on('produks')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateTablePembayarans extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayarans');
+        Schema::dropIfExists('orders');
     }
 }
