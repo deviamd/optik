@@ -26,8 +26,12 @@ Transaksi
                         <!-- end page title -->
                         <div>
                             <a class="btn btn-primary waves-effect waves-light" href="{{ route('transaksi.create')}}" role="button"> Create (+)</a>
+                            <a class="btn btn-danger waves-effect waves-light" href="/pdf" role="button"> laporan pdf</a>
                             </p>
                             </div>
+
+
+
 
                             <!-- fungsi cart -->
                             <form method="get" action="{{route('transaksi.index')}}">
@@ -38,6 +42,7 @@ Transaksi
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="card-title">Tabel</h4>
+
 
                                             <div class="table-responsive">
                                                 <table class="table table-editable table-nowrap align-middle table-edits">
@@ -56,17 +61,17 @@ Transaksi
                                                     @foreach($transaksi as $row)
                         <tr>
                             <td>{{ $loop->iteration + ($transaksi->perpage() *  ($transaksi->currentPage() -1)) }}</td>
-                            <td>{{ optional($row->produk)->nama}}</td>
-                            <td>{{ $row->id_order}}</td>
-                            <td>{{ $row->jenis_pembayaran }}</td>
+                            <td>{{ $row->produk->nama_produk}}</td>
+                            <td>{{ $row->order->id}}</td>
+                            <td>{{ $row->jenis_pmbayaran }}</td>
                             <td>{{ $row->tanggal}}</td>
                             <td>{{ $row->total_bayar}}</td>
                             <td>
                                                     <form method="post" action="{{ route('transaksi.destroy',[$row->id]) }}" onsubmit="return confirm('Apakah anda yakin akan menghapus, {{$row->name}}?')">
                                                         @csrf
                                                     {{ method_field('DELETE') }}
-                                                        <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('transaksi.edit',[$row->id]) }}" title="Edit">
-                                                        <i class="fas fa-pencil-alt"></i>
+                                                    {{-- <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('transaksi.edit',[$row->id]) }}" title="Edit"> --}}
+                                                        {{-- <i class="fas fa-pencil-alt"></i> --}}
                                                         </a>
                                                         <button type="submit" class="btn btn-outline-secondary btn-sm edit">
                                                         <i class="fas fa-trash-alt"></i></button>

@@ -44,7 +44,7 @@ Data Order
                     <tr>
                         <td>Nama Produk</td>
 
-                        <td>{{ $order->produk->nama }}</td>
+                        <td>{{ $order->produk }}</td>
                     </tr>
                     <tr>
                         <td>Qty</td>
@@ -57,7 +57,7 @@ Data Order
                         <td>{{ $order->harga }}</td>
                     </tr>
                           </table>
-                                            <a class="btn btn-primary waves-effect waves-light" href="/pembayaran" role="button">Kembali</a>
+                                            <a class="btn btn-primary waves-effect waves-light" href="/order" role="button">Kembali</a>
                                         </div>
                                     </div>
                                 </div>

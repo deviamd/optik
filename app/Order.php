@@ -9,11 +9,11 @@ class Order extends Model
     protected $table ='orders';
     protected $primarykey ='id';
     protected $fillable = [
-        'id','nama','qty', 'harga',
+        'id','id_user','nama','qty', 'harga',
     ];
 
-//     public function produk ()
-//     {
-//         return $this->belongsTo('App\Produk', 'id_produk');
-//     }
+    public function der()
+    {
+        return $this->hasMany(Transaksi::class, 'id_orders', 'id');
+    }
 }

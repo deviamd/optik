@@ -35,6 +35,7 @@ Kategori
                                         <table class="table table-editable table-nowrap align-middle table-edits">
                                             <thead>
                                                 <tr style="cursor: pointer;">
+                                                    <th>Id Kategori</th>
                                                     <th>Nama</th>
                                                     <th>Jenis</th>
                                                     <th>Edit</th>
@@ -43,7 +44,7 @@ Kategori
                                             <tbody>
                                             @foreach($kategori as $row)
                                                 <tr>
-
+                                                    <td>{{ $row->id }}</td>
                                                     <td>{{ $row->nama_kategori }}</td>
                                                     <td>{{ $row->jenis_kategori }}</td>
                                                     <td>

@@ -15,11 +15,11 @@ class CreateTableOrders extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->unsignedBigInteger('id_produk');
+            $table->unsignedBigInteger('id_user');
             $table->string('qty');
             $table->string('harga');
             $table->timestamps();
-            // $table->foreign('id_produk')->references('id')->on('produks')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

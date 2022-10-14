@@ -48,7 +48,6 @@ Produk
                                                 <tr>
                                                     <td>{{ $row->id }}</td>
                                                     <td>{{ $row->nama_produk }}</td>
-
                                                     <td>{{ $row->harga }}</td>
                                                     <td>{{ $row->stok }}</td>
                                                     {{-- <td>{{ ($row->kategori)->nama_kategori }}</td> --}}

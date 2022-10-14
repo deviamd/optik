@@ -39,6 +39,7 @@ class OrderController extends Controller
         $data = $request->all();
         $model = new Order;
         $model->qty = $request->qty;
+        $model->id_user = $request->user;
         $model->harga = $request->harga;
 
         // $validasi = Validator::make($data,[
@@ -55,7 +56,7 @@ class OrderController extends Controller
         // }
 
         Order::create($data);
-        toast('berhasil di tambah', 'success');
+        
         return redirect()->route('order.index');
     }//end method
 

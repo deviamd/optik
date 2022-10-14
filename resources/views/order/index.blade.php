@@ -46,7 +46,7 @@ Pembayaran
                                                     <thead>
                                                         <tr style="cursor: pointer;">
                                                             <th>Id</th>
-                                                            {{-- <th>Nama</th> --}}
+                                                            <th>id_user</th>
                                                             <th>qty</th>
                                                             <th>Harga</th>
                                                             <th>Edit</th>
@@ -56,7 +56,7 @@ Pembayaran
                                                     @foreach($order as $row)
                         <tr>
                             <td>{{ $loop->iteration + ($order->perpage() *  ($order->currentPage() -1)) }}</td>
-                            {{-- <td>{{ $row->produk->nama }}</td> --}}
+                            <td>{{ $row->id_user }}</td>
                             <td>{{ $row->qty }}</td>
                             <td>{{ $row->harga }}</td>
 

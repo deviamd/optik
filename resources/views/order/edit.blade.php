@@ -19,7 +19,7 @@ Pembayaran
                 <h4 class="card-title">Edit Order</h4>
 
 
-                                        <form class="custom-validation" method="POST" action="{{ route('pembayaran.update', $pembayaran->id) }}" novalidate="">
+                                        <form class="custom-validation" method="POST" action="{{ route('order.update', $order->id) }}" novalidate="">
                                             @csrf
                                             {{ method_field('PUT') }}
 

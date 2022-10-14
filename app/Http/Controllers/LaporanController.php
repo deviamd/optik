@@ -12,7 +12,7 @@ use \PDF;
 use App\Exports\LaporanExport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class LaporanControllers extends Controller
+class LaporanController extends Controller
 {
     public function index()
     {

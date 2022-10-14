@@ -34,6 +34,7 @@ Order
                                         <div class="value">
                                             <div class="input-group">
                                                 <input type="text" name="qty" class="form-control" required="" placeholder="">
+                                                <input type="hidden" name="id_user" value="{{ Auth::user()->id }}" class="form-control" required="" placeholder="">
                                             </div>
                                         </div>
                                     </div>

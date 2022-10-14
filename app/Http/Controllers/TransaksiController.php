@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use App\Transaksi;
 use App\Produk;
 use App\Order;
+use App\User;
 use Validator;
+use PDF;
 
 class TransaksiController extends Controller
 {
-    public function _contruct()
-    {
-        $this->middleware('transaksi');
-    }
+        // public function _contruct()
+        // {
+        //     $this->middleware('transaksi');
+        // }
 
     public function index(Request $request)
     {
@@ -31,7 +33,8 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::all();
         $produk = Produk::all();
-        $order = Order::all();
+        $order = User::
+        join('orders', 'orders.id_user', '=', 'users.id')->get();
         return view('transaksi.create', compact('transaksi','produk', 'order'));
     }//end method
 
@@ -113,4 +116,13 @@ class TransaksiController extends Controller
           $transaksi->update($data);
           return redirect()->route('transaksi.index');
        }
-}
+
+       public function pdf()
+       {
+        $transaksi = Transaksi::with('order','produk')->latest()->paginate(3);
+
+           $pdf = PDF::loadview('laporan.pdf',compact('transaksi'));
+           return $pdf->download('laporan.pdf');
+       }
+
+    }

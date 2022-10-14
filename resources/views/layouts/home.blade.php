@@ -100,10 +100,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                Transaksi
                             </a>
-                                <a class="nav-link" href="{{ route('laporan.index') }}">
+                            {{-- <a class="nav-link" href="{{ route('laporan.index') }}">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Laporan
-                                </a>
+                                </a> --}}
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
